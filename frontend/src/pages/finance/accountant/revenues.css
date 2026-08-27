@@ -1,0 +1,278 @@
+/* Revenues page – green theme */
+
+.revenues-intro {
+  margin-bottom: 24px;
+}
+
+.revenues-page-title {
+  margin: 0 0 6px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.revenues-page-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+.revenues-stats {
+  margin-bottom: 28px;
+}
+
+.revenues-stats .stat-card .stat-info {
+  min-width: 0;
+  overflow: visible;
+}
+
+.revenues-stats .stat-card .stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+  line-height: 1.3;
+  word-break: break-word;
+  overflow: visible;
+  white-space: normal;
+}
+
+/* Green stat card for revenue */
+.revenues-stats .stat-card.stat-success {
+  border-left: 4px solid #28a745;
+  background: linear-gradient(135deg, #f0fff4 0%, #e6ffed 100%);
+}
+
+.revenues-stats .stat-card.stat-success .stat-value {
+  color: #1e7e34;
+}
+
+.revenues-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.35);
+}
+
+.revenues-add-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.revenues-section {
+  margin-top: 0;
+}
+
+.revenues-table {
+  table-layout: auto;
+}
+
+/* Total card – green (revenue) */
+.revenues-total-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.revenues-total-label {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.revenues-total-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* View modal */
+.revenues-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.revenues-modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 440px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.revenues-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid #eee;
+  background: linear-gradient(135deg, #f0fff4 0%, #e6ffed 100%);
+}
+
+.revenues-modal-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.revenues-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.2s;
+}
+
+.revenues-modal-close:hover {
+  color: #2c3e50;
+}
+
+.revenues-modal-body {
+  padding: 24px;
+}
+
+.revenues-view-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 16px;
+}
+
+.revenues-view-row:last-of-type {
+  border-bottom: none;
+}
+
+.revenues-view-row label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+  min-width: 100px;
+}
+
+.revenues-view-row span {
+  font-size: 0.95rem;
+  color: #2c3e50;
+  text-align: right;
+}
+
+.revenues-modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #eee;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.revenues-modal-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.revenues-modal-btn.secondary {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  color: #495057;
+}
+
+.revenues-modal-btn.secondary:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.revenues-modal-btn.primary {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  border: none;
+  color: #fff;
+}
+
+.revenues-modal-btn.primary:hover {
+  opacity: 0.95;
+}
+
+/* Add/Edit form */
+.revenues-add-modal {
+  max-width: 480px;
+}
+
+.revenues-add-form {
+  padding: 24px;
+}
+
+.revenues-form-group {
+  margin-bottom: 18px;
+}
+
+.revenues-form-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.revenues-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.revenues-form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  background: #fff;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.revenues-form-input:focus {
+  outline: none;
+  border-color: #28a745;
+}
+
+.revenues-add-form .revenues-modal-footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  .revenues-total-card {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,94 @@
+/* LanguageSelector – uses theme CSS variables so it adapts to light/dark */
+
+.language-selector {
+  position: relative;
+}
+
+.language-selector-btn {
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-secondary, #666);
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.language-selector-btn:hover {
+  background-color: var(--language-selector-hover-bg, #f0f0f0);
+  border-color: var(--language-selector-hover-border, #1a3a5f);
+  color: var(--language-selector-hover-color, #1a3a5f);
+}
+
+.language-selector-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 5px;
+  background: var(--bg-secondary, white);
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  min-width: 150px;
+  overflow: hidden;
+}
+
+.language-selector-dropdown button {
+  width: 100%;
+  padding: 10px 15px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-secondary, #666);
+  font-weight: 400;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.language-selector-dropdown button:hover {
+  background-color: var(--language-selector-item-hover-bg, #f8f8f8);
+}
+
+.language-selector-dropdown button[data-active="true"] {
+  background-color: var(--language-selector-active-bg, #f0f0f0);
+  color: var(--language-selector-active-color, #1a3a5f);
+  font-weight: 600;
+}
+
+/* Dark theme overrides – applied when .dark-theme is on root */
+.dark-theme .language-selector-btn {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .language-selector-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .language-selector-dropdown {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .language-selector-dropdown button {
+  color: var(--text-primary);
+}
+
+.dark-theme .language-selector-dropdown button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-theme .language-selector-dropdown button[data-active="true"] {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+}

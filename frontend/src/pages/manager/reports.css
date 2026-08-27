@@ -1,0 +1,409 @@
+/* Manager Reports – header & title like admin categories&brands */
+
+.manager-reports-header {
+  background: var(--bg-secondary, white);
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--card-shadow, 0 2px 4px rgba(0, 0, 0, 0.1));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color, #e9ecef);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.manager-reports-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.manager-reports-header .page-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary, #1a3a5f);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.manager-reports-header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.manager-reports-header .menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-primary, #1a3a5f);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s ease;
+}
+
+.manager-reports-header .menu-toggle:hover {
+  background-color: var(--bg-primary, #f5f7fa);
+}
+
+.manager-date-time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.manager-welcome-section {
+  margin-bottom: 24px;
+}
+
+.manager-reports-intro {
+  margin: 0 0 6px 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.manager-reports-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+.manager-reports-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0;
+}
+
+.manager-reports-date-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-bottom: 24px;
+  padding: 14px 16px;
+  background: var(--bg-secondary, #f8f9fa);
+  border: 1px solid var(--border-color, #e9ecef);
+  border-radius: 10px;
+}
+
+.manager-reports-date-filter-icon {
+  color: var(--text-muted, #6c757d);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.manager-reports-date-label {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted, #5a6c7d);
+}
+
+.manager-reports-date-input {
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background: var(--bg-primary, #fff);
+  color: var(--text-primary, #212529);
+  min-width: 150px;
+  cursor: pointer;
+}
+
+.manager-reports-date-input:focus {
+  outline: none;
+  border-color: #1a3a5f;
+  box-shadow: 0 0 0 2px rgba(26, 58, 95, 0.15);
+}
+
+.manager-reports-date-clear {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1a3a5f;
+  background: transparent;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.manager-reports-date-clear:hover {
+  background: #fff;
+  border-color: #1a3a5f;
+}
+
+.manager-reports-period-hint {
+  font-size: 0.88rem;
+  color: var(--text-muted, #6c757d);
+  font-weight: 500;
+  margin-left: auto;
+}
+
+@media (max-width: 720px) {
+  .manager-reports-period-hint {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.manager-report-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #5a6c7d;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  margin-bottom: -2px;
+}
+
+.manager-report-tab .tab-icon {
+  font-size: 1.1rem;
+}
+
+.manager-report-tab:hover {
+  background: #e9ecef;
+  color: #2c3e50;
+}
+
+.manager-report-tab.active {
+  background: #fff;
+  color: #1a3a5f;
+  border-color: #dee2e6;
+  border-bottom: 2px solid #fff;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.manager-reports-loading {
+  padding: 48px 24px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #1a3a5f;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.manager-report-section {
+  margin-top: 0;
+  padding: 24px 0;
+}
+
+.manager-report-section-title {
+  margin: 0 0 20px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.manager-report-section-title svg {
+  color: #1a3a5f;
+}
+
+.manager-report-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.manager-report-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.manager-report-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #dee2e6;
+}
+
+.manager-report-card-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5a6c7d;
+  margin-bottom: 8px;
+}
+
+.manager-report-card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.manager-report-card-sublabel {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 6px;
+}
+
+.manager-report-card.highlight {
+  background: linear-gradient(135deg, #1a3a5f 0%, #2c5282 100%);
+  border-color: #1a3a5f;
+  color: #fff;
+}
+
+.manager-report-card.highlight .manager-report-card-label,
+.manager-report-card.highlight .manager-report-card-value {
+  color: #fff;
+}
+
+.manager-report-card.highlight .manager-report-card-sublabel {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.manager-report-card.pending .manager-report-card-value {
+  color: #f0ad4e;
+}
+
+.manager-report-card.approved .manager-report-card-value {
+  color: #28a745;
+}
+
+.manager-report-card.rejected .manager-report-card-value {
+  color: #dc3545;
+}
+
+/* Dark theme – Manager Reports cards and layout */
+.dark-theme .manager-date-time {
+  color: var(--text-secondary);
+}
+
+.dark-theme .manager-reports-tabs {
+  border-bottom-color: var(--border-color);
+}
+
+.dark-theme .manager-report-tab {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.dark-theme .manager-report-tab:hover {
+  background: #3a3a3a;
+  color: var(--text-primary);
+}
+
+.dark-theme .manager-report-tab.active {
+  background: var(--bg-secondary);
+  color: #f4a261;
+  border-color: var(--border-color);
+  border-bottom-color: var(--bg-secondary);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .manager-report-tab .tab-icon {
+  color: inherit;
+}
+
+.dark-theme .manager-reports-loading {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .manager-report-section-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .manager-report-section-title svg {
+  color: #f4a261;
+}
+
+/* Report cards */
+.dark-theme .manager-report-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+}
+
+.dark-theme .manager-report-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: var(--border-color);
+}
+
+.dark-theme .manager-report-card-label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .manager-report-card-value {
+  color: var(--text-primary);
+}
+
+.dark-theme .manager-report-card-sublabel {
+  color: var(--text-secondary);
+  opacity: 0.9;
+}
+
+.dark-theme .manager-report-card.highlight {
+  background: linear-gradient(135deg, #1a3a5f 0%, #2c5282 100%);
+  border-color: #2a4a6f;
+  color: #fff;
+}
+
+.dark-theme .manager-report-card.highlight .manager-report-card-label,
+.dark-theme .manager-report-card.highlight .manager-report-card-value {
+  color: #fff;
+}
+
+.dark-theme .manager-report-card.highlight .manager-report-card-sublabel {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .manager-report-card.pending .manager-report-card-value {
+  color: #f0ad4e;
+}
+
+.dark-theme .manager-report-card.approved .manager-report-card-value {
+  color: #28a745;
+}
+
+.dark-theme .manager-report-card.rejected .manager-report-card-value {
+  color: #dc3545;
+}
+
+@media (max-width: 768px) {
+  .manager-reports-tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .manager-report-tab {
+    border-radius: 8px;
+    margin-bottom: 0;
+    border: 1px solid #dee2e6;
+  }
+
+  .manager-report-tab.active {
+    border-bottom: 1px solid #1a3a5f;
+    box-shadow: 0 0 0 2px rgba(26, 58, 95, 0.2);
+  }
+
+  .manager-report-cards {
+    grid-template-columns: 1fr;
+  }
+}

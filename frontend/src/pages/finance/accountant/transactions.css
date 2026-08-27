@@ -1,0 +1,549 @@
+/* Admin: operation date toggle + calendar panel */
+.admin-operation-date-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3e50;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.admin-operation-date-btn:hover {
+  border-color: #1a3a5f;
+  color: #1a3a5f;
+}
+
+.admin-operation-date-btn.active {
+  background: #1a3a5f;
+  border-color: #1a3a5f;
+  color: #fff;
+}
+
+.admin-operation-date-btn .admin-date-filter-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #28a745;
+  margin-left: 2px;
+}
+
+.admin-operation-date-btn.active .admin-date-filter-dot {
+  background: #7dffb3;
+}
+
+.admin-operation-date-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  flex-basis: 100%;
+  padding: 12px 14px;
+  margin-top: 4px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Date filter */
+.transactions-section .filter-label {
+  font-size: 0.85rem;
+  color: #6c757d;
+  white-space: nowrap;
+}
+.transactions-section .filter-select[type="date"] {
+  min-width: 140px;
+  cursor: pointer;
+}
+.transactions-section .filter-clear-dates {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: #1a3a5f;
+  background: transparent;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.transactions-section .filter-clear-dates:hover {
+  background: #f0f0f0;
+  border-color: #1a3a5f;
+}
+
+/* Transactions page intro */
+.transactions-intro {
+  margin-bottom: 24px;
+}
+
+.transactions-page-title {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.transactions-page-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+/* Stats row (uses .stats-grid from dashboard) */
+.transactions-stats .stat-card {
+  min-height: 80px;
+}
+
+/* Main transactions table – expanded column widths */
+.transactions-section .table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.transactions-section .transactions-table {
+  table-layout: fixed;
+  width: 180%;
+}
+
+.transactions-section .transactions-table th,
+.transactions-section .transactions-table td {
+  padding: 14px 18px;
+}
+
+/* Column widths – S.No | Date | Customer | Items | Total | Payment | Received | Remain | Status | Actions */
+.transactions-section .transactions-table th:nth-child(1),
+.transactions-section .transactions-table td:nth-child(1) { width: 5%; min-width: 50px; }
+.transactions-section .transactions-table th:nth-child(2),
+.transactions-section .transactions-table td:nth-child(2) { width: 12%; min-width: 120px; }
+.transactions-section .transactions-table th:nth-child(3),
+.transactions-section .transactions-table td:nth-child(3) { width: 14%; min-width: 130px; }
+.transactions-section .transactions-table th:nth-child(4),
+.transactions-section .transactions-table td:nth-child(4) { width: 11%; min-width: 100px; }
+.transactions-section .transactions-table th:nth-child(5),
+.transactions-section .transactions-table td:nth-child(5) { width: 10%; min-width: 95px; }
+.transactions-section .transactions-table th:nth-child(6),
+.transactions-section .transactions-table td:nth-child(6) { width: 10%; min-width: 90px; }
+.transactions-section .transactions-table th:nth-child(7),
+.transactions-section .transactions-table td:nth-child(7) { width: 11%; min-width: 95px; }
+.transactions-section .transactions-table th:nth-child(8),
+.transactions-section .transactions-table td:nth-child(8) { width: 10%; min-width: 90px; }
+.transactions-section .transactions-table th:nth-child(9),
+.transactions-section .transactions-table td:nth-child(9) { width: 9%; min-width: 85px; }
+.transactions-section .transactions-table th:nth-child(10),
+.transactions-section .transactions-table td:nth-child(10) { width: 10%; min-width: 95px; }
+
+/* Table cell helpers */
+.txn-customer-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.txn-name {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.txn-detail {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.txn-amount {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.payment-method-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  background: #e9ecef;
+  color: #495057;
+}
+
+/* Status badges (approved/rejected if not in dashboard) */
+.status-badge.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Total amount card below table */
+.transactions-total-card {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transactions-total-label {
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.transactions-total-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* View modal */
+.transactions-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.transactions-modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.transactions-modal-content.transactions-view-form-wrapper {
+  max-width: 640px;
+}
+
+.transactions-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.transactions-modal-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.transactions-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+.transactions-modal-close:hover {
+  background: #f8f9fa;
+  color: #2c3e50;
+}
+
+.transactions-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* View form layout */
+.txn-view-form {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.txn-form-section {
+  margin: 0 0 24px 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 20px;
+}
+
+.txn-form-section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.txn-form-section legend {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1a3a5f;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 14px 0;
+  padding: 0 0 8px 0;
+  border-bottom: 1px solid #e9ecef;
+  width: 100%;
+}
+
+.txn-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px 24px;
+}
+
+.txn-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.txn-form-field label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6c757d;
+  margin: 0;
+}
+
+.txn-form-value {
+  font-size: 0.95rem;
+  color: #2c3e50;
+  line-height: 1.4;
+}
+
+.txn-form-value.txn-amount {
+  font-weight: 600;
+}
+
+.txn-items-table-wrap {
+  overflow-x: auto;
+  margin-top: 4px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+}
+
+.txn-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.txn-items-table th,
+.txn-items-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.txn-items-table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: #f8f9fa;
+}
+
+/* Modal items table – expanded column widths: Part | Part No. | Qty | Unit price | Subtotal */
+.txn-items-table {
+  table-layout: fixed;
+}
+
+.txn-items-table th:nth-child(1),
+.txn-items-table td:nth-child(1) { width: 26%; min-width: 100px; }
+.txn-items-table th:nth-child(2),
+.txn-items-table td:nth-child(2) { width: 20%; min-width: 80px; }
+.txn-items-table th:nth-child(3),
+.txn-items-table td:nth-child(3) { width: 10%; min-width: 44px; }
+.txn-items-table th:nth-child(4),
+.txn-items-table td:nth-child(4) { width: 22%; min-width: 90px; }
+.txn-items-table th:nth-child(5),
+.txn-items-table td:nth-child(5) { width: 22%; min-width: 90px; }
+
+.txn-items-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.txn-items-table td.txn-detail {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.transactions-view-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.transactions-view-row:last-child {
+  margin-bottom: 0;
+}
+
+.transactions-view-row label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.transactions-view-row span {
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.txn-item-block {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.txn-item-block:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.transactions-modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.transactions-modal-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid #dee2e6;
+  background: #f8f9fa;
+  color: #495057;
+}
+
+.transactions-modal-btn:hover {
+  background: #e9ecef;
+}
+
+.transactions-modal-btn.secondary {
+  background: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+
+.transactions-modal-btn.secondary:hover {
+  background: #5a6268;
+  border-color: #545b62;
+}
+
+/* Dark theme (finance accountant) */
+[data-theme="dark"] .transactions-page-title,
+[data-theme="dark"] .transactions-page-desc,
+[data-theme="dark"] .txn-name,
+[data-theme="dark"] .transactions-modal-header h3,
+[data-theme="dark"] .transactions-view-row span {
+  color: var(--text-primary, #e9ecef);
+}
+
+[data-theme="dark"] .transactions-page-desc,
+[data-theme="dark"] .txn-detail {
+  color: var(--text-secondary, #adb5bd);
+}
+
+[data-theme="dark"] .transactions-total-card {
+  background: var(--card-bg, #2d3748);
+}
+
+[data-theme="dark"] .transactions-total-label {
+  color: var(--text-secondary, #adb5bd);
+}
+
+[data-theme="dark"] .transactions-total-value {
+  color: var(--text-primary, #e9ecef);
+}
+
+[data-theme="dark"] .transactions-modal-content {
+  background: var(--card-bg, #2d3748);
+}
+
+[data-theme="dark"] .transactions-modal-header,
+[data-theme="dark"] .transactions-modal-footer {
+  border-color: var(--border-color, #4a5568);
+}
+
+[data-theme="dark"] .transactions-view-row label {
+  color: var(--text-secondary, #adb5bd);
+}
+
+[data-theme="dark"] .txn-item-block {
+  border-color: var(--border-color, #4a5568);
+}
+
+[data-theme="dark"] .transactions-modal-close {
+  color: var(--text-secondary, #adb5bd);
+}
+
+[data-theme="dark"] .transactions-modal-close:hover {
+  background: var(--hover-bg, #4a5568);
+  color: var(--text-primary, #e9ecef);
+}
+
+[data-theme="dark"] .transactions-modal-btn.secondary {
+  background: #4a5568;
+  border-color: #4a5568;
+  color: #e9ecef;
+}
+
+[data-theme="dark"] .transactions-modal-btn.secondary:hover {
+  background: #2d3748;
+}
+
+[data-theme="dark"] .txn-form-section {
+  border-color: var(--border-color, #4a5568);
+}
+
+[data-theme="dark"] .txn-form-section legend {
+  color: var(--text-primary, #e9ecef);
+  border-color: var(--border-color, #4a5568);
+}
+
+[data-theme="dark"] .txn-form-field label {
+  color: var(--text-secondary, #adb5bd);
+}
+
+[data-theme="dark"] .txn-form-value {
+  color: var(--text-primary, #e9ecef);
+}
+
+[data-theme="dark"] .txn-items-table-wrap {
+  border-color: var(--border-color, #4a5568);
+}
+
+[data-theme="dark"] .txn-items-table th,
+[data-theme="dark"] .txn-items-table td {
+  border-color: var(--border-color, #4a5568);
+}
+
+[data-theme="dark"] .txn-items-table th {
+  background: var(--hover-bg, #4a5568);
+  color: var(--text-secondary, #adb5bd);
+}
+
+[data-theme="dark"] .txn-items-table td.txn-detail {
+  color: var(--text-secondary, #adb5bd);
+}

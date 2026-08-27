@@ -1,0 +1,28 @@
+{
+  "short_name": "Mamuya Auto Parts",
+  "name": "Mamuya Auto Spare Parts Management System",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "purpose": "any"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1a3a5f",
+  "background_color": "#ffffff"
+}

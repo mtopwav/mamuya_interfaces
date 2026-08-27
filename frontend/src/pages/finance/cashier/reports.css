@@ -1,0 +1,38 @@
+/* Reports period filter */
+.reports-period-filter {
+  margin-left: 15px;
+}
+
+.reports-period-select {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #2c3e50;
+  cursor: pointer;
+  outline: none;
+  min-width: 150px;
+}
+
+.reports-period-select:hover,
+.reports-period-select:focus {
+  border-color: #1a3a5f;
+}
+
+/* Dark theme – reports period filter */
+.dark-theme .reports-period-select {
+  background-color: var(--bg-secondary, #2d2d2d);
+  border-color: var(--border-color, #404040);
+  color: var(--text-primary, #ffffff);
+}
+
+.dark-theme .reports-period-select:hover,
+.dark-theme .reports-period-select:focus {
+  border-color: #6b9bd1;
+}
+
+.dark-theme .reports-period-select option {
+  background-color: var(--bg-secondary, #2d2d2d);
+  color: var(--text-primary, #ffffff);
+}

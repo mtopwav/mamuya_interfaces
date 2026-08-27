@@ -1,0 +1,1689 @@
+/* Global Dark Theme Styles */
+
+:root,
+.light-theme {
+  --bg-primary: #f5f7fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --sidebar-bg-start: #1a3a5f;
+  --sidebar-bg-end: #152d47;
+  --sidebar-text: #ffffff;
+  --sidebar-text-secondary: rgba(255, 255, 255, 0.8);
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.1);
+  --sidebar-active-bg: rgba(255, 255, 255, 0.15);
+  --sidebar-active-border: #f4a261;
+}
+
+.dark-theme {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --border-color: #404040;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --sidebar-bg-start: #0f1f2e;
+  --sidebar-bg-end: #0a151f;
+  --sidebar-text: #ffffff;
+  --sidebar-text-secondary: rgba(255, 255, 255, 0.85);
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.1);
+  --sidebar-active-bg: rgba(255, 255, 255, 0.15);
+  --sidebar-active-border: #f4a261;
+}
+
+/* Apply theme variables globally */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark theme specific overrides */
+.dark-theme .dashboard-container,
+.dark-theme .main-content {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Finance accountant – dark theme */
+.dark-theme .finance-dashboard-container {
+  background-color: var(--bg-primary);
+}
+
+.dark-theme .finance-header {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .finance-header .page-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .finance-header .user-info,
+.dark-theme .finance-header .user-name {
+  color: var(--text-primary);
+}
+
+.dark-theme .finance-header .menu-toggle {
+  color: var(--text-primary);
+}
+
+.dark-theme .finance-header .menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .finance-header .language-selector .language-selector-btn {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .finance-header .language-selector .language-selector-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-color);
+}
+
+.dark-theme .finance-header .language-selector .language-selector-dropdown {
+  background-color: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .finance-header .language-selector .language-selector-dropdown button {
+  color: var(--text-primary) !important;
+  background: transparent !important;
+}
+
+.dark-theme .finance-header .language-selector .language-selector-dropdown button:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-theme .finance-content {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark-theme .dashboard-welcome-title,
+.dark-theme .dashboard-welcome-desc {
+  color: var(--text-primary);
+}
+
+.dark-theme .dashboard-welcome-desc {
+  color: var(--text-secondary);
+}
+
+.dark-theme .dashboard-section-title {
+  color: var(--text-secondary);
+}
+
+.dark-theme .quick-link-card {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .quick-link-card:hover {
+  border-color: #f4a261;
+  box-shadow: 0 4px 12px rgba(244, 162, 97, 0.2);
+}
+
+.dark-theme .quick-link-card.active {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: #f4a261;
+}
+
+.dark-theme .quick-link-label {
+  color: var(--text-primary);
+}
+
+.dark-theme .quick-link-desc {
+  color: var(--text-secondary);
+}
+
+.dark-theme .quick-link-card:hover .quick-link-arrow {
+  color: #f4a261;
+}
+
+.dark-theme .dashboard-cta-card {
+  background: linear-gradient(135deg, #1a2d42 0%, #0f1f2e 100%);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .dashboard-cta-title,
+.dark-theme .dashboard-cta-desc {
+  color: #fff;
+}
+
+.dark-theme .dashboard-cta-btn {
+  background: #fff;
+  color: #1a3a5f;
+}
+
+.dark-theme .transactions-section,
+.dark-theme .invoices-section,
+.dark-theme .salaries-section,
+.dark-theme .expenses-section,
+.dark-theme .revenues-section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .section-header h2,
+.dark-theme .section-header h3 {
+  color: var(--text-primary);
+}
+
+.dark-theme .transactions-table,
+.dark-theme .invoices-table,
+.dark-theme .salaries-table {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Table headers – dark theme (all accountant tables) */
+.dark-theme .transactions-table thead,
+.dark-theme .invoices-table thead,
+.dark-theme .salaries-table thead,
+.dark-theme .expenses-table thead,
+.dark-theme .revenues-table thead,
+.dark-theme .reports-table thead {
+  background-color: var(--bg-primary);
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .transactions-table thead th,
+.dark-theme .invoices-table thead th,
+.dark-theme .salaries-table thead th,
+.dark-theme .expenses-table thead th,
+.dark-theme .revenues-table thead th,
+.dark-theme .reports-table thead th {
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.dark-theme .transactions-table th,
+.dark-theme .transactions-table td,
+.dark-theme .invoices-table th,
+.dark-theme .invoices-table td,
+.dark-theme .salaries-table th,
+.dark-theme .salaries-table td {
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .transactions-table tbody tr:hover,
+.dark-theme .invoices-table tbody tr:hover,
+.dark-theme .salaries-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .filter-group,
+.dark-theme .search-box {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .filter-icon {
+  color: var(--text-secondary);
+}
+
+.dark-theme .filter-select,
+.dark-theme .search-input {
+  color: var(--text-primary);
+  background-color: transparent;
+}
+
+.dark-theme .filter-select option {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark-theme .filter-select:focus {
+  outline: none;
+}
+
+.dark-theme .filter-group:focus-within,
+.dark-theme .search-box:focus-within {
+  border-color: #f4a261;
+  box-shadow: 0 0 0 1px rgba(244, 162, 97, 0.25);
+}
+
+.dark-theme .search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.dark-theme .transactions-total-card,
+.dark-theme .invoices-total-card,
+.dark-theme .salaries-total-card {
+  background-color: #1a2d42;
+  border: 1px solid var(--border-color);
+}
+
+/* Total cards with colored themes – dark mode (keep accent border, dark bg) */
+.dark-theme .expenses-total-card {
+  background: linear-gradient(135deg, #3d1f24 0%, #2d1518 100%);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .revenues-total-card {
+  background: linear-gradient(135deg, #1e3d28 0%, #152d1c 100%);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .transactions-total-label,
+.dark-theme .invoices-total-label,
+.dark-theme .salaries-total-label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .transactions-total-value,
+.dark-theme .invoices-total-value,
+.dark-theme .salaries-total-value {
+  color: var(--text-primary);
+}
+
+/* Salaries page – white/light text in dark theme */
+.dark-theme .salaries-page-title,
+.dark-theme .salaries-section .section-header h2 {
+  color: var(--text-primary);
+}
+
+.dark-theme .salaries-page-desc {
+  color: var(--text-secondary);
+}
+
+.dark-theme .salaries-stats .stat-card .stat-value,
+.dark-theme .salaries-stats .stat-card .stat-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .salaries-table .no-data {
+  color: var(--text-primary);
+}
+
+.dark-theme .salaries-table .amount-positive {
+  color: #5dd879;
+}
+
+.dark-theme .salaries-modal-content {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .salaries-modal-header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  border-color: var(--border-color);
+}
+
+.dark-theme .salaries-modal-header h3,
+.dark-theme .salaries-modal-close {
+  color: var(--text-primary);
+}
+
+.dark-theme .salaries-modal-close:hover {
+  color: var(--text-secondary);
+}
+
+.dark-theme .salaries-view-row {
+  border-bottom-color: var(--border-color);
+}
+
+.dark-theme .salaries-view-row label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .salaries-view-row span {
+  color: var(--text-primary);
+}
+
+.dark-theme .salaries-modal-footer {
+  border-color: var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+.dark-theme .salaries-modal-btn.secondary {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .salaries-modal-btn.secondary:hover {
+  background-color: #2d2d2d;
+  border-color: var(--border-color);
+}
+
+.dark-theme .salaries-form-section-title {
+  color: var(--text-primary);
+  border-bottom-color: var(--border-color);
+}
+
+.dark-theme .salaries-form-group label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .salaries-required {
+  color: #f4a261;
+}
+
+.dark-theme .salaries-form-input {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.dark-theme .salaries-form-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.dark-theme .salaries-form-input:focus {
+  border-color: #f4a261;
+  background-color: #2d2d2d;
+}
+
+.dark-theme .salaries-add-form .salaries-modal-footer {
+  border-top-color: var(--border-color);
+}
+
+.dark-theme .salaries-total-card .salaries-total-label,
+.dark-theme .salaries-total-card .salaries-total-value {
+  color: #fff;
+}
+
+/* Invoices page – white/light text in dark theme */
+.dark-theme .invoices-page-title,
+.dark-theme .invoices-section .section-header h2 {
+  color: var(--text-primary);
+}
+
+.dark-theme .invoices-page-desc {
+  color: var(--text-secondary);
+}
+
+.dark-theme .invoices-stats .stat-card .stat-value,
+.dark-theme .invoices-stats .stat-card .stat-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .invoice-number-cell,
+.dark-theme .description-cell,
+.dark-theme .invoices-table .no-data {
+  color: var(--text-primary);
+}
+
+.dark-theme .invoices-table .amount-positive {
+  color: #5dd879;
+}
+
+.dark-theme .invoices-table .status-badge.overdue {
+  background-color: #8b3a42;
+  color: #fff;
+}
+
+.dark-theme .invoices-table .status-badge.sent {
+  background-color: #2a4a6f;
+  color: #e0e0e0;
+}
+
+.dark-theme .invoices-modal-content {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .invoices-modal-header,
+.dark-theme .invoices-modal-footer {
+  border-color: var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+.dark-theme .invoices-modal-header h3,
+.dark-theme .invoices-modal-close {
+  color: var(--text-primary);
+}
+
+.dark-theme .invoices-modal-close:hover {
+  color: var(--text-secondary);
+}
+
+.dark-theme .invoices-view-row {
+  border-bottom-color: var(--border-color);
+}
+
+.dark-theme .invoices-view-row label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .invoices-view-row span {
+  color: var(--text-primary);
+}
+
+.dark-theme .invoices-modal-btn.secondary {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .invoices-modal-btn.secondary:hover {
+  background-color: #3a3a3a;
+  border-color: var(--border-color);
+}
+
+.dark-theme .invoices-form-section-title {
+  color: var(--text-primary);
+  border-bottom-color: var(--border-color);
+}
+
+.dark-theme .invoices-form-group label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .invoices-required {
+  color: #f4a261;
+}
+
+.dark-theme .invoices-optional,
+.dark-theme .invoices-auto-badge {
+  color: var(--text-secondary);
+}
+
+.dark-theme .invoices-auto-badge {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .invoices-form-input {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.dark-theme .invoices-form-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.dark-theme .invoices-form-input-readonly,
+.dark-theme .invoices-form-input[readonly] {
+  background-color: #2d2d2d;
+  color: var(--text-secondary);
+}
+
+.dark-theme .invoices-add-form .invoices-modal-footer {
+  border-top-color: var(--border-color);
+}
+
+.dark-theme .transactions-page-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .transactions-page-desc,
+.dark-theme .txn-detail {
+  color: var(--text-secondary);
+}
+
+.dark-theme .txn-name {
+  color: var(--text-primary);
+}
+
+/* Expenses page – white/light text in dark theme */
+.dark-theme .expenses-page-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .expenses-page-desc {
+  color: var(--text-secondary);
+}
+
+.dark-theme .expenses-stats .stat-card .stat-value,
+.dark-theme .expenses-stats .stat-card .stat-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .expenses-section .section-header h2 {
+  color: var(--text-primary);
+}
+
+.dark-theme .expenses-view-row label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .expenses-view-row span {
+  color: var(--text-primary);
+}
+
+.dark-theme .expenses-modal-header h3 {
+  color: var(--text-primary);
+}
+
+.dark-theme .expenses-form-group label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .expenses-form-input {
+  background-color: #1a1a1a;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.dark-theme .expenses-form-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.dark-theme .expenses-modal-content {
+  background-color: var(--bg-secondary);
+}
+
+.dark-theme .expenses-modal-header,
+.dark-theme .expenses-modal-footer {
+  border-color: var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+.dark-theme .expenses-total-card .expenses-total-label,
+.dark-theme .expenses-total-card .expenses-total-value {
+  color: #fff;
+}
+
+.dark-theme .expenses-table,
+.dark-theme .expenses-table th,
+.dark-theme .expenses-table td {
+  color: var(--text-primary);
+}
+
+/* expenses-table thead/th covered by table headers block above */
+
+/* Revenues page – white/light text in dark theme */
+.dark-theme .revenues-page-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .revenues-page-desc {
+  color: var(--text-secondary);
+}
+
+.dark-theme .revenues-stats .stat-card .stat-value,
+.dark-theme .revenues-stats .stat-card .stat-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .revenues-section .section-header h2 {
+  color: var(--text-primary);
+}
+
+.dark-theme .revenues-view-row label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .revenues-view-row span {
+  color: var(--text-primary);
+}
+
+.dark-theme .revenues-modal-header h3 {
+  color: var(--text-primary);
+}
+
+.dark-theme .revenues-form-group label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .revenues-form-input {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.dark-theme .revenues-form-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.dark-theme .revenues-form-input:focus {
+  border-color: #28a745;
+  background-color: #2d2d2d;
+}
+
+.dark-theme .revenues-form-input option {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark-theme .revenues-modal-close {
+  color: var(--text-primary);
+}
+
+.dark-theme .revenues-modal-close:hover {
+  color: var(--text-secondary);
+}
+
+.dark-theme .revenues-view-row {
+  border-bottom-color: var(--border-color);
+}
+
+.dark-theme .revenues-modal-btn.secondary {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .revenues-modal-btn.secondary:hover {
+  background-color: #2d2d2d;
+  border-color: var(--border-color);
+}
+
+.dark-theme .revenues-modal-btn.primary {
+  background: linear-gradient(135deg, #1e5631 0%, #2d7a4a 100%);
+  border: 1px solid var(--border-color);
+  color: #fff;
+}
+
+.dark-theme .revenues-add-form .revenues-modal-footer {
+  border-top-color: var(--border-color);
+}
+
+/* Section action buttons (Add revenue, Add expense) – dark theme */
+.dark-theme .revenues-add-btn {
+  background: linear-gradient(135deg, #1e5631 0%, #2d7a4a 100%);
+  color: #fff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .revenues-add-btn:hover {
+  background: linear-gradient(135deg, #2d7a4a 0%, #3d8f5a 100%);
+  opacity: 0.95;
+}
+
+.dark-theme .expenses-add-btn {
+  background: linear-gradient(135deg, #1a3a5f 0%, #2a4a7f 100%);
+  color: #fff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .expenses-add-btn:hover {
+  background: linear-gradient(135deg, #2a4a7f 0%, #3a5a8f 100%);
+  opacity: 0.95;
+}
+
+.dark-theme .revenues-modal-content {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .revenues-modal-header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  border-color: var(--border-color);
+}
+
+.dark-theme .revenues-modal-footer {
+  border-color: var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+.dark-theme .revenues-total-card .revenues-total-label,
+.dark-theme .revenues-total-card .revenues-total-value {
+  color: #fff;
+}
+
+.dark-theme .revenues-table,
+.dark-theme .revenues-table th,
+.dark-theme .revenues-table td {
+  color: var(--text-primary);
+}
+
+/* revenues-table thead covered by table headers block above */
+
+.dark-theme .reports-section,
+.dark-theme .reports-intro .reports-page-title,
+.dark-theme .reports-section-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .reports-section {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .reports-section-header {
+  border-color: var(--border-color);
+}
+
+.dark-theme .reports-section-total {
+  color: var(--text-primary);
+}
+
+.dark-theme .reports-page-desc,
+.dark-theme .reports-period-label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .reports-stat-count {
+  color: var(--text-secondary);
+}
+
+/* Reports stat cards – override gradients with dark background */
+.dark-theme .reports-stats .stat-card.stat-danger,
+.dark-theme .reports-stats .stat-card.stat-success {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .reports-stats .stat-card.stat-danger {
+  border-left: 4px solid #dc3545;
+}
+
+.dark-theme .reports-stats .stat-card.stat-success {
+  border-left: 4px solid #28a745;
+}
+
+.dark-theme .reports-net-card.stat-success,
+.dark-theme .reports-net-card.stat-danger {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .reports-net-card.stat-success .stat-value {
+  color: #5dd879;
+}
+
+.dark-theme .reports-net-card.stat-danger .stat-value {
+  color: #f08080;
+}
+
+/* Reports tables – whole table dark theme */
+.dark-theme .reports-table-wrap {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.dark-theme .reports-table {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark-theme .reports-table thead {
+  background-color: var(--bg-primary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.dark-theme .reports-table thead th {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-bottom-color: var(--border-color);
+}
+
+.dark-theme .reports-table tbody td {
+  color: var(--text-primary);
+  border-bottom-color: var(--border-color);
+}
+
+.dark-theme .reports-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .reports-table tbody tr:last-child td {
+  border-bottom-color: transparent;
+}
+
+.dark-theme .reports-table .no-data {
+  color: var(--text-secondary);
+}
+
+.dark-theme .reports-table .reports-desc-cell,
+.dark-theme .reports-table td {
+  color: var(--text-primary);
+}
+
+.dark-theme .reports-table .amount-negative {
+  color: #f08080;
+}
+
+.dark-theme .reports-table .amount-positive {
+  color: #5dd879;
+}
+
+.dark-theme .reports-table .reports-category-badge {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+}
+
+.dark-theme .reports-table .status-badge.completed {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.dark-theme .reports-table .status-badge.pending {
+  background-color: rgba(255, 193, 7, 0.35);
+  color: #f0e68c;
+}
+
+.dark-theme .reports-category-badge {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+}
+
+.dark-theme .reports-divider::before,
+.dark-theme .reports-divider::after {
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.dark-theme .reports-divider-label {
+  color: #5dd879;
+}
+
+.dark-theme .reports-section.reports-expenses {
+  border-left: 4px solid #dc3545;
+}
+
+.dark-theme .reports-section.reports-revenues {
+  border-left: 4px solid #28a745;
+}
+
+/* Table container (card around tables) in dark mode */
+.dark-theme .transactions-section .table-container,
+.dark-theme .invoices-section .table-container,
+.dark-theme .salaries-section .table-container,
+.dark-theme .expenses-section .table-container,
+.dark-theme .revenues-section .table-container {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.dark-theme .reports-table th,
+.dark-theme .reports-table td {
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+/* reports-table thead covered by table headers block above */
+
+.dark-theme .dashboard-header,
+.dark-theme .categories-brands-header,
+.dark-theme .spareparts-header,
+.dark-theme .employees-header,
+.dark-theme .settings-header {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dark-theme .dashboard-card,
+.dark-theme .stat-card,
+.dark-theme .summary-card {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+.dark-theme .table-container,
+.dark-theme .items-table,
+.dark-theme .employees-table,
+.dark-theme .spareparts-table {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark-theme .items-table thead,
+.dark-theme .employees-table thead,
+.dark-theme .spareparts-table thead {
+  background-color: #1a1a1a;
+  color: var(--text-primary);
+}
+
+.dark-theme .items-table tbody tr,
+.dark-theme .employees-table tbody tr,
+.dark-theme .spareparts-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dark-theme .items-table tbody tr:hover,
+.dark-theme .employees-table tbody tr:hover,
+.dark-theme .spareparts-table tbody tr:hover {
+  background-color: #3a3a3a;
+}
+
+.dark-theme .modal-content,
+.dark-theme .modal-overlay {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark-theme .modal-header {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dark-theme .form-group input,
+.dark-theme .form-group select,
+.dark-theme .form-group textarea {
+  background-color: #1a1a1a;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .form-group input:focus,
+.dark-theme .form-group select:focus,
+.dark-theme .form-group textarea:focus {
+  border-color: #f4a261;
+  background-color: #2d2d2d;
+}
+
+.dark-theme .search-input {
+  background-color: #1a1a1a;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .search-input:focus {
+  background-color: #2d2d2d;
+  border-color: #f4a261;
+}
+
+.dark-theme .action-btn,
+.dark-theme .add-btn,
+.dark-theme .submit-btn,
+.dark-theme .save-btn {
+  background-color: #1a3a5f;
+  color: white;
+  border: 1px solid #1a3a5f;
+}
+
+.dark-theme .action-btn:hover,
+.dark-theme .add-btn:hover,
+.dark-theme .submit-btn:hover,
+.dark-theme .save-btn:hover {
+  background-color: #2a4a6f;
+  border-color: #2a4a6f;
+}
+
+.dark-theme .cancel-btn {
+  background-color: #404040;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .cancel-btn:hover {
+  background-color: #505050;
+}
+
+.dark-theme .stat-card {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+/* All stat-card variants (success, danger, primary, info) – dark mode */
+.dark-theme .stat-card.stat-success,
+.dark-theme .stat-card.stat-danger,
+.dark-theme .stat-card.stat-primary,
+.dark-theme .stat-card.stat-info,
+.dark-theme .transactions-stats .stat-card,
+.dark-theme .invoices-stats .stat-card,
+.dark-theme .salaries-stats .stat-card,
+.dark-theme .expenses-stats .stat-card,
+.dark-theme .revenues-stats .stat-card,
+.dark-theme .reports-stats .stat-card,
+.dark-theme .dashboard-stat-card {
+  background-color: var(--bg-secondary);
+  border-left-color: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .reports-stats .stat-card.stat-danger,
+.dark-theme .expenses-stats .stat-card.stat-danger {
+  border-left: 4px solid #dc3545;
+}
+
+.dark-theme .reports-stats .stat-card.stat-success,
+.dark-theme .revenues-stats .stat-card.stat-success .stat-value,
+.dark-theme .invoices-stats .stat-card.stat-success .stat-value,
+.dark-theme .salaries-stats .stat-card.stat-success .stat-value {
+  border-left: 4px solid #28a745;
+}
+
+/* This month / success card – force dark background (override revenues.css gradient) */
+.dark-theme .revenues-stats .stat-card.stat-success {
+  background: var(--bg-secondary);
+  border-left: 4px solid #28a745;
+  color: var(--text-primary);
+}
+
+.dark-theme .invoices-stats .stat-card.stat-success,
+.dark-theme .salaries-stats .stat-card.stat-success {
+  background: var(--bg-secondary);
+  border-left: 4px solid #28a745;
+  color: var(--text-primary);
+}
+
+.dark-theme .reports-net-card.stat-success {
+  border-left: 4px solid #28a745;
+}
+
+.dark-theme .reports-net-card.stat-danger {
+  border-left: 4px solid #dc3545;
+}
+
+.dark-theme .stat-value {
+  color: var(--text-primary);
+}
+
+.dark-theme .stat-title {
+  color: var(--text-secondary);
+}
+
+.dark-theme .user-info {
+  color: var(--text-primary);
+}
+
+.dark-theme .date-time-display {
+  color: var(--text-secondary);
+}
+
+.dark-theme .page-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .no-data {
+  color: var(--text-secondary);
+}
+
+.dark-theme .status-badge {
+  color: var(--text-primary);
+}
+
+.dark-theme .settings-panel,
+.dark-theme .settings-form {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark-theme .panel-header {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dark-theme .tab-btn {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+}
+
+.dark-theme .tab-btn.active {
+  color: #f4a261;
+  border-bottom-color: #f4a261;
+}
+
+.dark-theme .tab-btn:hover {
+  color: var(--text-primary);
+  background-color: #3a3a3a;
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: #f0f0f0 !important;
+  border-color: #f4a261 !important;
+  color: #1a3a5f !important;
+}
+
+.dark-theme .theme-toggle-btn {
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .theme-toggle-btn:hover {
+  background-color: #3a3a3a !important;
+  border-color: #f4a261 !important;
+  color: #f4a261 !important;
+}
+
+/* Sidebar Theme Styles */
+.sidebar {
+  background: linear-gradient(180deg, var(--sidebar-bg-start, #1a3a5f) 0%, var(--sidebar-bg-end, #152d47) 100%);
+  color: var(--sidebar-text, #ffffff);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-header {
+  border-bottom: 1px solid var(--sidebar-border, rgba(255, 255, 255, 0.1));
+}
+
+.sidebar-title {
+  color: var(--sidebar-text, #ffffff);
+}
+
+.nav-item {
+  color: var(--sidebar-text-secondary, rgba(255, 255, 255, 0.8));
+}
+
+.nav-item:hover {
+  background-color: var(--sidebar-hover-bg, rgba(255, 255, 255, 0.1));
+  color: var(--sidebar-text, #ffffff);
+  border-left-color: var(--sidebar-active-border, #f4a261);
+}
+
+.nav-item.active {
+  background-color: var(--sidebar-active-bg, rgba(255, 255, 255, 0.15));
+  color: var(--sidebar-text, #ffffff);
+  border-left-color: var(--sidebar-active-border, #f4a261);
+}
+
+/* Content Areas */
+.dark-theme .categories-brands-content,
+.dark-theme .spareparts-content,
+.dark-theme .employees-content,
+.dark-theme .settings-content {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Action Bar */
+.dark-theme .action-bar {
+  background-color: transparent;
+}
+
+.dark-theme .search-icon {
+  color: var(--text-secondary);
+}
+
+/* Tabs */
+.dark-theme .content-tabs {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+.dark-theme .tab-btn {
+  color: var(--text-secondary);
+}
+
+.dark-theme .tab-btn:hover {
+  background-color: #3a3a3a;
+  color: var(--text-primary);
+}
+
+.dark-theme .tab-btn.active {
+  background-color: #1a3a5f;
+  color: white;
+}
+
+/* Stats Row */
+.dark-theme .stats-row {
+  background-color: transparent;
+}
+
+/* Table Headers */
+.dark-theme .items-table th,
+.dark-theme .employees-table th,
+.dark-theme .spareparts-table th {
+  background-color: #1a1a1a;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.dark-theme .items-table td,
+.dark-theme .employees-table td,
+.dark-theme .spareparts-table td {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Table Row Hover */
+.dark-theme .items-table tbody tr:hover td,
+.dark-theme .employees-table tbody tr:hover td,
+.dark-theme .spareparts-table tbody tr:hover td {
+  background-color: #3a3a3a;
+}
+
+/* Action Buttons in Tables */
+.dark-theme .action-btn.view {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.dark-theme .action-btn.edit {
+  background-color: #ffc107;
+  color: #1a1a1a;
+}
+
+.dark-theme .action-btn.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.dark-theme .action-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Badges and Status */
+.dark-theme .status-badge.approved {
+  background-color: #28a745;
+  color: white;
+}
+
+.dark-theme .status-badge.rejected {
+  background-color: #dc3545;
+  color: white;
+}
+
+.dark-theme .status-badge.pending {
+  background-color: #ffc107;
+  color: #1a1a1a;
+}
+
+.dark-theme .status-badge.active {
+  background-color: #28a745;
+  color: white;
+}
+
+.dark-theme .status-badge.inactive {
+  background-color: #6c757d;
+  color: white;
+}
+
+.dark-theme .payment-method-badge,
+.dark-theme .position-badge,
+.dark-theme .department-badge,
+.dark-theme .category-badge {
+  background-color: #3a3a3a;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Modal Overlay */
+.dark-theme .modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dark-theme .modal-content {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .modal-header h2 {
+  color: var(--text-primary);
+}
+
+.dark-theme .close-btn {
+  color: var(--text-primary);
+  background-color: transparent;
+}
+
+.dark-theme .close-btn:hover {
+  background-color: #3a3a3a;
+  color: var(--text-primary);
+}
+
+/* Form Labels */
+.dark-theme .form-group label {
+  color: var(--text-primary);
+}
+
+.dark-theme .form-group input::placeholder,
+.dark-theme .form-group textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Date input calendar icon – white in dark theme (forms) */
+.dark-theme input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.dark-theme .invoices-form-input[type="date"]::-webkit-calendar-picker-indicator,
+.dark-theme .expenses-form-input[type="date"]::-webkit-calendar-picker-indicator,
+.dark-theme .revenues-form-input[type="date"]::-webkit-calendar-picker-indicator,
+.dark-theme .salaries-form-input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* View Modal Content */
+.dark-theme .view-content,
+.dark-theme .view-section {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark-theme .view-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dark-theme .view-item label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .view-value {
+  color: var(--text-primary);
+}
+
+/* Menu Toggle */
+.dark-theme .menu-toggle {
+  color: var(--text-primary);
+}
+
+.dark-theme .menu-toggle:hover {
+  background-color: #3a3a3a;
+}
+
+/* Item Names and Info */
+.dark-theme .item-name,
+.dark-theme .part-name,
+.dark-theme .employee-name,
+.dark-theme .customer-info,
+.dark-theme .employee-info {
+  color: var(--text-primary);
+}
+
+.dark-theme .name-icon,
+.dark-theme .info-icon {
+  color: var(--text-secondary);
+}
+
+/* Amount Cells */
+.dark-theme .amount-cell {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Chart Container */
+.dark-theme .chart-container,
+.dark-theme .chart-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+/* Filter Box */
+.dark-theme .filter-box select {
+  background-color: #1a1a1a;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .filter-box select:focus {
+  background-color: #2d2d2d;
+  border-color: #f4a261;
+}
+
+/* Quick Actions */
+.dark-theme .quick-actions {
+  background-color: transparent;
+}
+
+.dark-theme .action-btn.primary,
+.dark-theme .action-btn.secondary,
+.dark-theme .action-btn.info,
+.dark-theme .action-btn.warning {
+  color: white;
+}
+
+/* Activity Items */
+.dark-theme .activity-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dark-theme .activity-icon {
+  background-color: #3a3a3a;
+  color: var(--text-primary);
+}
+
+.dark-theme .activity-description {
+  color: var(--text-primary);
+}
+
+.dark-theme .activity-time {
+  color: var(--text-secondary);
+}
+
+.dark-theme .activity-amount {
+  color: #28a745;
+}
+
+/* Settings Tabs */
+.dark-theme .settings-tabs {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Form Actions */
+.dark-theme .form-actions {
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+/* Password Input Wrapper */
+.dark-theme .password-input-wrapper {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .password-input-wrapper input {
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+.dark-theme .password-toggle-btn {
+  color: var(--text-secondary);
+}
+
+.dark-theme .password-toggle-btn:hover {
+  color: var(--text-primary);
+}
+
+/* Checkbox Groups */
+.dark-theme .checkbox-group,
+.dark-theme .checkbox-label {
+  color: var(--text-primary);
+}
+
+.dark-theme .checkbox-label input[type="checkbox"] {
+  accent-color: #1a3a5f;
+}
+
+/* Part Info Display */
+.dark-theme .part-info,
+.dark-theme .part-number,
+.dark-theme .brand-name {
+  color: var(--text-primary);
+}
+
+.dark-theme .number-icon,
+.dark-theme .brand-icon,
+.dark-theme .category-icon {
+  color: var(--text-secondary);
+}
+
+/* Total Value */
+.dark-theme .total-value {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.dark-theme .total-value-text {
+  color: var(--text-primary);
+}
+
+/* Scrollbar Styling for Dark Theme */
+.dark-theme .table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark-theme .table-container::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dark-theme .table-container::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+.dark-theme .table-container::-webkit-scrollbar-thumb:hover {
+  background: #505050;
+}
+
+/* Additional dark theme styles for better visibility */
+.dark-theme .item-form,
+.dark-theme .sparepart-form,
+.dark-theme .employee-form {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark-theme .form-group select option {
+  background-color: #2d2d2d;
+  color: var(--text-primary);
+}
+
+/* Forms in dark theme - form container and controls */
+.dark-theme form {
+  color: var(--text-primary);
+}
+
+.dark-theme form .form-group label {
+  color: var(--text-primary);
+}
+
+.dark-theme form input:not([type="checkbox"]):not([type="radio"]),
+.dark-theme form select,
+.dark-theme form textarea {
+  background-color: #1a1a1a;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme form input:focus,
+.dark-theme form select:focus,
+.dark-theme form textarea:focus {
+  border-color: #f4a261;
+  background-color: #2d2d2d;
+  outline: none;
+}
+
+.dark-theme form input::placeholder,
+.dark-theme form textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.dark-theme form select option {
+  background-color: #2d2d2d;
+  color: var(--text-primary);
+}
+
+.dark-theme form .form-actions {
+  border-top: 1px solid var(--border-color);
+  background-color: transparent;
+}
+
+.dark-theme form .cancel-btn {
+  background-color: #404040;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme form .cancel-btn:hover {
+  background-color: #505050;
+}
+
+.dark-theme form .submit-btn,
+.dark-theme form .save-btn {
+  background: linear-gradient(135deg, #1a3a5f, #152d47);
+  color: white;
+}
+
+/* View Modal Specific */
+.dark-theme .view-modal {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.dark-theme .view-section {
+  background-color: transparent;
+}
+
+.dark-theme .view-item label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .view-item .view-value {
+  color: var(--text-primary);
+}
+
+/* Employee specific styles */
+.dark-theme .employee-email,
+.dark-theme .employee-phone {
+  color: var(--text-primary);
+}
+
+.dark-theme .email-icon,
+.dark-theme .phone-icon {
+  color: var(--text-secondary);
+}
+
+.dark-theme .password-display,
+.dark-theme .password-text {
+  color: var(--text-primary);
+}
+
+.dark-theme .no-password {
+  color: var(--text-secondary);
+}
+
+/* Part specific styles */
+.dark-theme .part-info {
+  color: var(--text-primary);
+}
+
+.dark-theme .category-badge .category-icon {
+  color: var(--text-secondary);
+}
+
+/* Status badges in dark theme */
+.dark-theme .status-badge.in-stock {
+  background-color: #28a745;
+  color: white;
+}
+
+.dark-theme .status-badge.low-stock {
+  background-color: #ffc107;
+  color: #1a1a1a;
+}
+
+.dark-theme .status-badge.out-of-stock {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Scrollbar for dark theme */
+.dark-theme .table-container::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dark-theme .table-container::-webkit-scrollbar-thumb {
+  background: #404040;
+  border: 2px solid #1a1a1a;
+}
+
+.dark-theme .table-container::-webkit-scrollbar-corner {
+  background: #1a1a1a;
+}

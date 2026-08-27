@@ -1,0 +1,25 @@
+.receipts-page .receipts-header .page-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.receipts-page .receipts-header .page-title::before {
+  content: "🧾";
+}
+
+.receipts-page .table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.receipts-page .payments-table {
+  table-layout: auto;
+  width: max-content;
+  min-width: 2500px;
+}
+
+.receipts-page .payments-table th,
+.receipts-page .payments-table td {
+  white-space: nowrap;
+}

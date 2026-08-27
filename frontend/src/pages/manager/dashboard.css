@@ -1,0 +1,288 @@
+/* Manager Dashboard */
+
+.manager-date-time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.manager-dashboard-content {
+  padding: 24px 30px;
+}
+
+.manager-welcome {
+  margin-bottom: 28px;
+}
+
+.manager-welcome-title {
+  margin: 0 0 6px 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.manager-welcome-sub {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+.manager-section-title {
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.manager-stats {
+  margin-bottom: 32px;
+}
+
+.manager-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.manager-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.manager-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.manager-stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.manager-stat-pending .manager-stat-icon {
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+}
+
+.manager-stat-approved .manager-stat-icon {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.manager-stat-total .manager-stat-icon {
+  background: linear-gradient(135deg, #1a3a5f 0%, #152d47 100%);
+}
+
+.manager-stat-card .stat-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.manager-stat-card .stat-value {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.manager-quick-links {
+  margin-bottom: 24px;
+}
+
+.manager-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.manager-quick-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.manager-quick-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border-color: #1a3a5f;
+  color: inherit;
+}
+
+.manager-quick-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1a3a5f 0%, #152d47 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.manager-quick-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.manager-quick-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.manager-quick-desc {
+  font-size: 0.85rem;
+  color: #6c757d;
+  line-height: 1.3;
+}
+
+/* Transactions table on dashboard */
+.manager-transactions-section {
+  margin-top: 32px;
+}
+
+.manager-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.manager-view-all-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a3a5f;
+  text-decoration: none;
+}
+
+.manager-view-all-link:hover {
+  text-decoration: underline;
+  color: #152d47;
+}
+
+.manager-dashboard-table {
+  max-height: 400px;
+  min-height: 200px;
+}
+
+/* Dark theme - Manager Dashboard */
+.dark-theme .manager-date-time {
+  color: var(--text-secondary);
+}
+
+.dark-theme .manager-section-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .manager-welcome-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .manager-welcome-sub {
+  color: var(--text-secondary);
+}
+
+/* Today's overview - stat cards */
+.dark-theme .manager-stats .manager-section-title {
+  color: var(--text-primary);
+}
+
+.dark-theme .manager-stat-card,
+.dark-theme .manager-stats .stat-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+}
+
+.dark-theme .manager-stat-card:hover,
+.dark-theme .manager-stats .stat-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  background: var(--bg-secondary);
+}
+
+.dark-theme .manager-stat-card .stat-info h3,
+.dark-theme .manager-stats .stat-card .stat-info h3 {
+  color: var(--text-secondary);
+}
+
+.dark-theme .manager-stat-card .stat-value,
+.dark-theme .manager-stats .stat-card .stat-value {
+  color: var(--text-primary);
+}
+
+/* Quick action buttons (cards) */
+.dark-theme .manager-quick-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .manager-quick-card:hover {
+  border-color: #f4a261;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.dark-theme .manager-quick-label {
+  color: var(--text-primary);
+}
+
+.dark-theme .manager-quick-desc {
+  color: var(--text-secondary);
+}
+
+.dark-theme .manager-view-all-link {
+  color: #f4a261;
+}
+
+.dark-theme .manager-view-all-link:hover {
+  color: #ffb87a;
+}
+
+@media (max-width: 900px) {
+  .manager-stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .manager-quick-grid {
+    grid-template-columns: 1fr;
+  }
+}

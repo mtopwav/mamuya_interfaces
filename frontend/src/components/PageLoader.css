@@ -1,0 +1,243 @@
+/* Mamuya animated loaders — page + database fetch */
+
+.mamuya-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mamuya-loader--page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #f0f4f8 0%, #e8eef5 45%, #f5f7fa 100%);
+}
+
+.mamuya-loader--inline {
+  min-height: 160px;
+  padding: 24px 16px;
+}
+
+.mamuya-loader__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 28px 36px;
+  border-radius: 16px;
+  background: var(--bg-secondary, #fff);
+  box-shadow: 0 8px 32px rgba(26, 58, 95, 0.1);
+  border: 1px solid rgba(26, 58, 95, 0.08);
+  max-width: 320px;
+  width: 100%;
+  animation: mamuya-loader-fade-in 0.35s ease-out;
+}
+
+.mamuya-loader--inline .mamuya-loader__card {
+  padding: 20px 24px;
+  box-shadow: 0 4px 16px rgba(26, 58, 95, 0.06);
+  background: transparent;
+  border: none;
+}
+
+.mamuya-loader__logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  animation: mamuya-loader-logo-pulse 2s ease-in-out infinite;
+}
+
+.mamuya-loader__ring {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mamuya-loader__ring--sm {
+  width: 36px;
+  height: 36px;
+}
+
+.mamuya-loader__ring--md {
+  width: 48px;
+  height: 48px;
+}
+
+.mamuya-loader__ring--lg {
+  width: 60px;
+  height: 60px;
+}
+
+.mamuya-loader__ring span {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #1a3a5f;
+  animation: mamuya-loader-spin 1.1s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
+}
+
+.mamuya-loader__ring--sm span {
+  width: 36px;
+  height: 36px;
+}
+
+.mamuya-loader__ring--md span {
+  width: 48px;
+  height: 48px;
+}
+
+.mamuya-loader__ring--lg span {
+  width: 60px;
+  height: 60px;
+}
+
+.mamuya-loader__ring span:nth-child(2) {
+  width: 75%;
+  height: 75%;
+  border-top-color: #2e6da4;
+  animation-duration: 0.85s;
+  animation-direction: reverse;
+}
+
+.mamuya-loader__ring span:nth-child(3) {
+  width: 50%;
+  height: 50%;
+  border-top-color: #5a9fd4;
+  animation-duration: 0.65s;
+}
+
+.mamuya-loader__bar {
+  width: 100%;
+  max-width: 200px;
+  height: 4px;
+  background: rgba(26, 58, 95, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mamuya-loader__bar-fill {
+  display: block;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, #1a3a5f, #2e6da4);
+  border-radius: 4px;
+  animation: mamuya-loader-bar 1.4s ease-in-out infinite;
+}
+
+.mamuya-loader__message {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a3a5f;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.mamuya-loader--inline .mamuya-loader__message {
+  font-size: 0.88rem;
+  color: #6c757d;
+}
+
+.mamuya-loader-table-row td.mamuya-loader-table-cell {
+  padding: 32px 16px !important;
+  text-align: center;
+  background: var(--bg-secondary, #fff);
+}
+
+.mamuya-loader-inline-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+  min-height: 120px;
+}
+
+.mamuya-mini-loader {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  vertical-align: middle;
+}
+
+.mamuya-mini-loader__ring {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(26, 58, 95, 0.2);
+  border-top-color: #1a3a5f;
+  border-radius: 50%;
+  animation: mamuya-loader-spin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+
+.mamuya-mini-loader__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: inherit;
+}
+
+/* Legacy class support */
+.loading-cell {
+  text-align: center;
+  padding: 32px 16px !important;
+}
+
+.manager-reports-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 24px;
+}
+
+.dashboard-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes mamuya-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mamuya-loader-logo-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+@keyframes mamuya-loader-bar {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+@keyframes mamuya-loader-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mamuya-loader__ring span,
+  .mamuya-loader__bar-fill,
+  .mamuya-loader__logo,
+  .mamuya-loader__card {
+    animation: none !important;
+  }
+}
