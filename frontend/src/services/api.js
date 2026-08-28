@@ -510,6 +510,9 @@ export const updateSalary = (id, body) => {
   });
 };
 
+/** Onfon SMS — config + balance + campaigns in one request (Messages page) */
+export const getSmsInit = () => smsApiGet("/sms/init");
+
 /** Onfon SMS — config only */
 export const getSmsConfig = () => smsApiGet("/sms/config");
 

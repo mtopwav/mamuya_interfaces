@@ -33,7 +33,7 @@ import ThemeToggle from '../../components/ThemeToggle';
 import LanguageSelector from '../../components/LanguageSelector';
 import { getCurrentDateTime } from '../../utils/dateTime';
 import { useTranslation } from '../../utils/useTranslation';
-import { getSmsConfig, getSmsBalance, getSmsStatus, getSmsRecipients, getSmsCampaigns, deleteSmsCampaign, sendBulkSms } from '../../services/api';
+import { getSmsInit, getSmsBalance, getSmsRecipients, getSmsCampaigns, deleteSmsCampaign, sendBulkSms } from '../../services/api';
 
 /** Apply /api/sms/balance (Onfon GET Balance) to the units card. */
 function applyUnitsBalanceFromApi(balanceRes, { setSmsUnits, setSmsCredits, setSmsApiReady }) {
@@ -197,70 +197,36 @@ function ManagerMessages() {
     }
   };
 
-  /** Load Onfon provider config from server .env via /api/sms/* (credentials stay on server). */
+  /** Load SMS config, balance, and campaigns in one API call. */
   const loadSmsProviderConnection = async () => {
     setUnitsBalanceLoading(true);
+    setCampaignsLoading(true);
     setSmsCredits('Loading…');
 
     try {
-      const results = await Promise.allSettled([
-        getSmsConfig(),
-        getSmsStatus(),
-        getSmsBalance()
-      ]);
+      const initRes = await getSmsInit();
 
-      const configRes =
-        results[0].status === 'fulfilled'
-          ? results[0].value
-          : { success: false, configured: false, error: results[0].reason?.message };
-      const statusRes =
-        results[1].status === 'fulfilled'
-          ? results[1].value
-          : { success: false, configured: false, canSend: false };
-      const balanceRes =
-        results[2].status === 'fulfilled'
-          ? results[2].value
-          : { success: false, canSend: false, error: results[2].reason?.message };
-
-      const allFailed =
-        results[0].status === 'rejected' &&
-        results[1].status === 'rejected' &&
-        results[2].status === 'rejected';
-
-      if (allFailed) {
-        const errMsg =
-          results[2].reason?.message ||
-          results[0].reason?.message ||
-          'Cannot reach backend SMS API. Start the server on port 5000.';
-        throw new Error(errMsg);
+      if (!initRes?.success) {
+        throw new Error(initRes?.message || 'Cannot reach backend SMS API.');
       }
+
+      const configRes = initRes.config || {};
+      const balanceRes = initRes.balance || {};
 
       if (!configRes.configured) {
         setSmsApiReady(false);
         setSmsUnits(null);
         setSmsCredits('Not configured');
+        setCampaigns(Array.isArray(initRes.campaigns) ? initRes.campaigns : []);
         return { configured: false };
       }
 
-      // Prefer live balance; fall back to combined status endpoint for the units card.
-      const unitsSource =
-        balanceRes.units != null || balanceRes.unitsDisplay
-          ? balanceRes
-          : statusRes.unitsDisplay
-            ? {
-                ...balanceRes,
-                units: statusRes.creditsNumeric ?? balanceRes.units,
-                unitsDisplay: statusRes.unitsDisplay,
-                canSend: statusRes.canSend ?? balanceRes.canSend
-              }
-            : balanceRes;
+      applyUnitsBalanceFromApi(balanceRes, { setSmsUnits, setSmsCredits, setSmsApiReady });
+      setSmsApiReady(configRes.canSend !== false && configRes.configured === true);
 
-      applyUnitsBalanceFromApi(unitsSource, { setSmsUnits, setSmsCredits, setSmsApiReady });
-      setSmsApiReady(
-        statusRes.canSend !== false &&
-          balanceRes.canSend !== false &&
-          configRes.configured === true
-      );
+      if (Array.isArray(initRes.campaigns)) {
+        setCampaigns(initRes.campaigns);
+      }
 
       return { configured: true };
     } catch (err) {
@@ -271,6 +237,7 @@ function ManagerMessages() {
       return { configured: false, offline: true };
     } finally {
       setUnitsBalanceLoading(false);
+      setCampaignsLoading(false);
     }
   };
 
@@ -293,38 +260,42 @@ function ManagerMessages() {
 
     let cancelled = false;
 
-    const loadProviderWithRetry = async (attempt = 0) => {
+    const loadPageData = async (attempt = 0) => {
       if (cancelled) return;
-      const result = await loadSmsProviderConnection();
-      if (cancelled) return;
-      if (result?.offline && attempt < 2) {
-        setTimeout(() => loadProviderWithRetry(attempt + 1), 2000);
-      }
-    };
 
-    const loadRecipients = async () => {
       setRecipientsLoading(true);
       setRecipientsError('');
-      try {
-        const recRes = await getSmsRecipients();
-        if (!cancelled && recRes.success && Array.isArray(recRes.recipients)) {
+
+      const [providerResult, recResult] = await Promise.allSettled([
+        loadSmsProviderConnection(),
+        getSmsRecipients()
+      ]);
+
+      if (cancelled) return;
+
+      if (recResult.status === 'fulfilled') {
+        const recRes = recResult.value;
+        if (recRes.success && Array.isArray(recRes.recipients)) {
           setRecipients(recRes.recipients);
-        } else if (!cancelled) {
+        } else {
           setRecipientsError(recRes.message || 'Could not load recipients from server.');
         }
-      } catch (err) {
-        console.error('SMS recipients load error:', err);
-        if (!cancelled) {
-          setRecipientsError(err.message || 'Could not load recipients. Is the backend running?');
-        }
-      } finally {
-        if (!cancelled) setRecipientsLoading(false);
+      } else {
+        console.error('SMS recipients load error:', recResult.reason);
+        setRecipientsError(
+          recResult.reason?.message || 'Could not load recipients. Is the backend running?'
+        );
+      }
+      setRecipientsLoading(false);
+
+      const result =
+        providerResult.status === 'fulfilled' ? providerResult.value : { offline: true };
+      if (result?.offline && attempt < 2) {
+        setTimeout(() => loadPageData(attempt + 1), 2000);
       }
     };
 
-    loadProviderWithRetry();
-    loadRecipients();
-    fetchCampaignsFromApi();
+    loadPageData();
 
     return () => {
       cancelled = true;
