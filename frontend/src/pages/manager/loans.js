@@ -1768,10 +1768,18 @@ function ManagerLoans() {
       setSplitMpesaInput('');
       setSplitYasInput('');
       setPaymentMethodInput('');
+      const smsNote =
+        response.sms?.sent
+          ? ` SMS sent to customer (payment: TZS ${Number(response.sms.amountPaid ?? addAmount).toLocaleString('en-US')}).`
+          : response.sms && !response.sms.skipped && response.sms.error
+            ? ` Payment saved but SMS failed: ${response.sms.error}`
+            : '';
       Swal.fire({
         icon: 'success',
         title: t.saved || 'Saved',
-        text: t.loanInstallmentSaved || 'Installment saved. You can add another payment or close when done.',
+        text:
+          (t.loanInstallmentSaved ||
+            'Installment saved. You can add another payment or close when done.') + smsNote,
         confirmButtonColor: '#1a3a5f',
         timer: 2800,
         timerProgressBar: true,

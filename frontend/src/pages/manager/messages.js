@@ -33,7 +33,7 @@ import ThemeToggle from '../../components/ThemeToggle';
 import LanguageSelector from '../../components/LanguageSelector';
 import { getCurrentDateTime } from '../../utils/dateTime';
 import { useTranslation } from '../../utils/useTranslation';
-import { getSmsInit, getSmsBalance, getSmsRecipients, getSmsCampaigns, deleteSmsCampaign, sendBulkSms } from '../../services/api';
+import { getSmsInit, getSmsBalance, getSmsRecipients, getSmsCampaigns, deleteSmsCampaign, sendBulkSms, getLoanReminderStatus, getCustomerAppreciationStatus } from '../../services/api';
 
 /** Apply /api/sms/balance (Onfon GET Balance) to the units card. */
 function applyUnitsBalanceFromApi(balanceRes, { setSmsUnits, setSmsCredits, setSmsApiReady }) {
@@ -148,6 +148,8 @@ function ManagerMessages() {
   const [failedToday, setFailedToday] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [smsApiReady, setSmsApiReady] = useState(false);
+  const [autoReminder, setAutoReminder] = useState(null);
+  const [customerAppreciation, setCustomerAppreciation] = useState(null);
 
   useEffect(() => {
     const userData = localStorage.getItem('user') || sessionStorage.getItem('user');
@@ -266,12 +268,21 @@ function ManagerMessages() {
       setRecipientsLoading(true);
       setRecipientsError('');
 
-      const [providerResult, recResult] = await Promise.allSettled([
+      const [providerResult, recResult, reminderResult, appreciationResult] = await Promise.allSettled([
         loadSmsProviderConnection(),
-        getSmsRecipients()
+        getSmsRecipients(),
+        getLoanReminderStatus(),
+        getCustomerAppreciationStatus()
       ]);
 
       if (cancelled) return;
+
+      if (reminderResult.status === 'fulfilled' && reminderResult.value?.success) {
+        setAutoReminder(reminderResult.value);
+      }
+      if (appreciationResult.status === 'fulfilled' && appreciationResult.value?.success) {
+        setCustomerAppreciation(appreciationResult.value);
+      }
 
       if (recResult.status === 'fulfilled') {
         const recRes = recResult.value;
@@ -628,6 +639,52 @@ function ManagerMessages() {
               </div>
             </div>
           </div>
+
+          {autoReminder && (
+            <div
+              className={`bulk-sms-auto-reminder ${autoReminder.enabled && autoReminder.onfonConfigured ? 'active' : 'inactive'}`}
+            >
+              <FaCalendarAlt aria-hidden="true" />
+              <span>
+                <strong>Auto loan reminders:</strong>{' '}
+                {autoReminder.enabled && autoReminder.onfonConfigured
+                  ? `Every day 7:00–9:00 AM (${autoReminder.timezone || 'Africa/Dar_es_Salaam'}) — loan customers with balance above ${(
+                      autoReminder.minRemainTzs ?? LOAN_RECIPIENT_MIN_REMAIN
+                    ).toLocaleString()} TZS, max 1 SMS per customer per day.`
+                  : autoReminder.enabled
+                    ? 'Onfon SMS not configured on server.'
+                    : 'Disabled on server (LOAN_REMINDER_ENABLED=false).'}
+                {autoReminder.lastRun?.sent > 0 && autoReminder.lastRun?.reminderDate && (
+                  <>
+                    {' '}
+                    Last run: {autoReminder.lastRun.sent} sent on {autoReminder.lastRun.reminderDate}.
+                  </>
+                )}
+              </span>
+            </div>
+          )}
+
+          {customerAppreciation && (
+            <div
+              className={`bulk-sms-auto-reminder ${customerAppreciation.enabled && customerAppreciation.onfonConfigured ? 'active' : 'inactive'}`}
+            >
+              <FaEnvelope aria-hidden="true" />
+              <span>
+                <strong>Auto customer thank-you:</strong>{' '}
+                {customerAppreciation.enabled && customerAppreciation.onfonConfigured
+                  ? `Every ${customerAppreciation.intervalDays ?? 15} days to all customers (~${customerAppreciation.perYearApprox ?? 24}× per year) at ${String(customerAppreciation.runHour ?? 10).padStart(2, '0')}:00 (${customerAppreciation.timezone || 'Africa/Dar_es_Salaam'}).`
+                  : customerAppreciation.enabled
+                    ? 'Onfon SMS not configured on server.'
+                    : 'Disabled on server (CUSTOMER_APPRECIATION_SMS_ENABLED=false).'}
+                {customerAppreciation.lastRun?.sent > 0 && customerAppreciation.lastRun?.sentDate && (
+                  <>
+                    {' '}
+                    Last run: {customerAppreciation.lastRun.sent} sent on {customerAppreciation.lastRun.sentDate}.
+                  </>
+                )}
+              </span>
+            </div>
+          )}
 
           <div className="bulk-sms-tabs">
             <button

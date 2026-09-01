@@ -513,6 +513,12 @@ export const updateSalary = (id, body) => {
 /** Onfon SMS — config + balance + campaigns in one request (Messages page) */
 export const getSmsInit = () => smsApiGet("/sms/init");
 
+/** Daily automatic loan reminder scheduler status */
+export const getLoanReminderStatus = () => smsApiGet("/sms/loan-reminders/status");
+
+/** Customer thank-you SMS scheduler (every 15 days) */
+export const getCustomerAppreciationStatus = () => smsApiGet("/sms/customer-appreciation/status");
+
 /** Onfon SMS — config only */
 export const getSmsConfig = () => smsApiGet("/sms/config");
 
@@ -550,10 +556,10 @@ export const sendBulkSms = async (payload) => {
     }
 
     const data = await response.json();
-    console.log("✅ SMS send response:", data);
+    console.log("SMS send response:", data);
     return data;
   } catch (error) {
-    console.error("❌ SMS send error:", error);
+    console.error("SMS send error:", error);
     if (
       error.message.includes("Failed to fetch") ||
       error.message.includes("Network") ||
